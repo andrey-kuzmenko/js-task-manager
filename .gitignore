@@ -1,4 +1,6 @@
 /.idea
 /.vscode
 /node_modules
+/typings
+/public
 npm-debug.log
