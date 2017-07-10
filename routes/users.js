@@ -1,7 +1,8 @@
-var express = require('express');
-var util = require('util');
-var router = express.Router();
-var bcrypt = require('bcryptjs');
+const express = require('express');
+const util = require('util');
+const router = express.Router();
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
 let User = require('../models/user');
 
@@ -50,5 +51,13 @@ router.post('/register', function (req, res, next) {
     });
 });
 
+router.post('/login',
+    passport.authenticate('local'),
+    function(req, res){
+        // If this function gets called, authentication was successful.
+        // `req.user` contains the authenticated user.
+        res.json( req.user);
+    }
+);
 
 module.exports = router;

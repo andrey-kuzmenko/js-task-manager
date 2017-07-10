@@ -1,17 +1,19 @@
-var express = require('express');
-var path = require('path');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var expressValidator = require('express-validator');
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const expressValidator = require('express-validator');
+const config = require('./config/database');
+const passport = require('passport');
 
-var index = require('./routes/index');
-var tasks = require('./routes/tasks');
-var users = require('./routes/users');
+const index = require('./routes/index');
+const tasks = require('./routes/tasks');
+const users = require('./routes/users');
 
-var port = process.env.PORT || 3000;
-var app = express();
+const port = process.env.PORT || 3000;
+const app = express();
 
-mongoose.connect('localhost:27017/node-angular2');
+mongoose.connect(config.database);
 
 
 //View Engine
@@ -38,8 +40,21 @@ app.use(expressValidator({
         };
     }
 }));
+
+// Passport config
+require('./config/passport')(passport);
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('*', function (req, res, next) {
+   res.locals.user = req.user || null;
+   console.log(res.locals);
+   next();
+});
+
 //Set Static Folder
-var staticFilesPath = express.static(path.join(__dirname, 'client'));
+const staticFilesPath = express.static(path.join(__dirname, 'client'));
 app.use(staticFilesPath);
 
 
@@ -54,5 +69,5 @@ app.use('/users', users);
 
 app.listen(port, function () {
     console.log('server started on port ' + port);
-})
+});
 

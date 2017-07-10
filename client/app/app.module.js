@@ -19,14 +19,14 @@ var login_component_1 = require("./components/login/login.component");
 var AppModule = (function () {
     function AppModule() {
     }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, app_router_1.routes],
+            declarations: [app_component_1.AppComponent, tasks_component_1.TasksComponent, pie_component_1.PieComponent, register_component_1.RegisterComponent, login_component_1.LoginComponent],
+            bootstrap: [app_component_1.AppComponent]
+        })
+    ], AppModule);
     return AppModule;
 }());
-AppModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, http_1.HttpModule, forms_1.FormsModule, app_router_1.routes],
-        declarations: [app_component_1.AppComponent, tasks_component_1.TasksComponent, pie_component_1.PieComponent, register_component_1.RegisterComponent, login_component_1.LoginComponent],
-        bootstrap: [app_component_1.AppComponent]
-    })
-], AppModule);
 exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map

@@ -1,6 +1,5 @@
 import {Component} from "@angular/core";
 import {UserService} from "../../services/user.services";
-import {User} from "../../Models/User";
 import {Router} from "@angular/router";
 
 @Component({
@@ -14,9 +13,18 @@ export class LoginComponent {
     username: string;
     password: string;
 
-    getUser(event: any) {
+    login(event: any) {
         event.preventDefault();
-        console.log(this);
+        const data = {
+            username : this.username,
+            password : this.password
+        };
+
+        this.userService.auth(data).subscribe(saved => {
+            console.log("success: " + saved);
+            this.router.navigate(['/task']);
+        },
+        err => console.log("err1: " + err));
 
     }
 

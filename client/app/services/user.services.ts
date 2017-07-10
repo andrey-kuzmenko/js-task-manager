@@ -11,13 +11,13 @@ export class UserService {
         console.log('User Service Initialised ...');
     }
 
-    getUser() {
-        return this.http.get('/api/tasks/:username')
-            .map(res => {
-                console.log('got ', res.json());
-                this.tasks = res.json();
-                return this.tasks;
-            });
+    auth(data) {
+        let headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        return this.http
+            .post('/users/login', JSON.stringify(data), { headers: headers })
+            .map(res => res.json());
     }
 
     addUser(newUser: User) {

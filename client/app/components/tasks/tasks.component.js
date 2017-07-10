@@ -81,15 +81,15 @@ var TasksComponent = (function () {
             }
         });
     };
+    TasksComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'tasks',
+            templateUrl: 'tasks.component.html',
+        }),
+        __metadata("design:paramtypes", [task_services_1.TaskService])
+    ], TasksComponent);
     return TasksComponent;
 }());
-TasksComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'tasks',
-        templateUrl: 'tasks.component.html',
-    }),
-    __metadata("design:paramtypes", [task_services_1.TaskService])
-], TasksComponent);
 exports.TasksComponent = TasksComponent;
 //# sourceMappingURL=tasks.component.js.map

@@ -13,15 +13,15 @@ var AppComponent = (function () {
     function AppComponent() {
         this.name = 'Diff';
     }
+    AppComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'my-app',
+            templateUrl: 'app.component.html',
+            providers: [task_services_1.TaskService, user_services_1.UserService]
+        })
+    ], AppComponent);
     return AppComponent;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'my-app',
-        templateUrl: 'app.component.html',
-        providers: [task_services_1.TaskService, user_services_1.UserService]
-    })
-], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

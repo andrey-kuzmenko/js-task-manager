@@ -18,14 +18,12 @@ var UserService = (function () {
         this.userCreated = new core_1.EventEmitter();
         console.log('User Service Initialised ...');
     }
-    UserService.prototype.getUser = function () {
-        var _this = this;
-        return this.http.get('/api/tasks/:username')
-            .map(function (res) {
-            console.log('got ', res.json());
-            _this.tasks = res.json();
-            return _this.tasks;
-        });
+    UserService.prototype.auth = function (data) {
+        var headers = new http_1.Headers();
+        headers.append("Content-Type", "application/json");
+        return this.http
+            .post('/users/login', JSON.stringify(data), { headers: headers })
+            .map(function (res) { return res.json(); });
     };
     UserService.prototype.addUser = function (newUser) {
         var headers = new http_1.Headers();
@@ -34,11 +32,11 @@ var UserService = (function () {
             .post('/users/register', JSON.stringify(newUser), { headers: headers })
             .map(function (res) { return res.json(); });
     };
+    UserService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], UserService);
     return UserService;
 }());
-UserService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], UserService);
 exports.UserService = UserService;
 //# sourceMappingURL=user.services.js.map

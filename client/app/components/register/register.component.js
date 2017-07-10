@@ -34,16 +34,16 @@ var RegisterComponent = (function () {
             _this.router.navigate(['/task']);
         });
     };
+    RegisterComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'register-form',
+            templateUrl: './register.component.html',
+            styleUrls: ['register.component.css']
+        }),
+        __metadata("design:paramtypes", [user_services_1.UserService, router_1.Router])
+    ], RegisterComponent);
     return RegisterComponent;
 }());
-RegisterComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'register-form',
-        templateUrl: './register.component.html',
-        styleUrls: ['register.component.css']
-    }),
-    __metadata("design:paramtypes", [user_services_1.UserService, router_1.Router])
-], RegisterComponent);
 exports.RegisterComponent = RegisterComponent;
 //# sourceMappingURL=register.component.js.map
