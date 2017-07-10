@@ -4,12 +4,15 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { PieComponent } from './components/pie/pie.component';
+import { RegisterComponent } from "./components/register/register.component";
 import { FormsModule} from '@angular/forms';
-import {RegisterComponent} from "./app.register/register.component";
+import { routes } from './app.router';
+import {LoginComponent} from "./components/login/login.component";
+
 
 @NgModule({
-    imports: [BrowserModule, HttpModule, FormsModule],
-    declarations: [AppComponent, TasksComponent, PieComponent, RegisterComponent],
+    imports: [BrowserModule, HttpModule, FormsModule, routes],
+    declarations: [AppComponent, TasksComponent, PieComponent, RegisterComponent, LoginComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule { 

@@ -6,7 +6,7 @@ var expressValidator = require('express-validator');
 
 var index = require('./routes/index');
 var tasks = require('./routes/tasks');
-var register = require('./routes/register');
+var users = require('./routes/users');
 
 var port = process.env.PORT || 3000;
 var app = express();
@@ -15,11 +15,11 @@ mongoose.connect('localhost:27017/node-angular2');
 
 
 //View Engine
-
+app.engine('ejs', require('ejs-locals'));
 app.set('views', path.join(__dirname, 'views'));
 
 app.set('view engine', 'ejs');
-//app.engine('html', require('ejs').renderFile);
+
 
 // Express Validator Middleware
 app.use(expressValidator({
@@ -49,7 +49,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', index);
 app.use('/api', tasks);
-app.use('/', register);
+app.use('/users', users);
 
 
 app.listen(port, function () {

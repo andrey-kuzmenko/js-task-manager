@@ -12,46 +12,33 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
-var TaskService = (function () {
-    function TaskService(http) {
+var UserService = (function () {
+    function UserService(http) {
         this.http = http;
-        this.tasks = [];
-        this.tasksUpdated = new core_1.EventEmitter();
-        console.log('Task Service Initialised ...');
+        this.userCreated = new core_1.EventEmitter();
+        console.log('User Service Initialised ...');
     }
-    TaskService.prototype.getTasks = function () {
+    UserService.prototype.getUser = function () {
         var _this = this;
-        return this.http.get('/api/tasks')
+        return this.http.get('/api/tasks/:username')
             .map(function (res) {
             console.log('got ', res.json());
             _this.tasks = res.json();
             return _this.tasks;
         });
     };
-    TaskService.prototype.addTask = function (newTask) {
+    UserService.prototype.addUser = function (newUser) {
         var headers = new http_1.Headers();
         headers.append("Content-Type", "application/json");
         return this.http
-            .post('/api/task', JSON.stringify(newTask), { headers: headers })
+            .post('/users/register', JSON.stringify(newUser), { headers: headers })
             .map(function (res) { return res.json(); });
     };
-    TaskService.prototype.deleteTask = function (id) {
-        return this.http
-            .delete('/api/tasks/' + id)
-            .map(function (res) { return res.json(); });
-    };
-    TaskService.prototype.updateStatus = function (task) {
-        var headers = new http_1.Headers();
-        headers.append("Content-Type", "application/json");
-        return this.http
-            .put('/api/tasks/' + task._id, JSON.stringify(task), { headers: headers })
-            .map(function (res) { return res.json(); });
-    };
-    return TaskService;
+    return UserService;
 }());
-TaskService = __decorate([
+UserService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
-], TaskService);
-exports.TaskService = TaskService;
-//# sourceMappingURL=task.services.js.map
+], UserService);
+exports.UserService = UserService;
+//# sourceMappingURL=user.services.js.map

@@ -8,9 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
 var d3 = require("../../../../node_modules/d3/build/d3.js");
-var task_services_1 = require('../../services/task.services');
+var task_services_1 = require("../../services/task.services");
 var PieComponent = (function () {
     function PieComponent(elementRef, renderer, taskService) {
         this.elementRef = elementRef;
@@ -147,15 +148,15 @@ var PieComponent = (function () {
         return chart;
     };
     ;
-    PieComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'pie',
-            templateUrl: 'pie.component.html'
-        }), 
-        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer, task_services_1.TaskService])
-    ], PieComponent);
     return PieComponent;
 }());
+PieComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'pie',
+        templateUrl: 'pie.component.html'
+    }),
+    __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer, task_services_1.TaskService])
+], PieComponent);
 exports.PieComponent = PieComponent;
 //# sourceMappingURL=pie.component.js.map
