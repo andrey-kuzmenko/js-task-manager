@@ -32,11 +32,19 @@ var UserService = (function () {
             .post('/users/register', JSON.stringify(newUser), { headers: headers })
             .map(function (res) { return res.json(); });
     };
-    UserService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http])
-    ], UserService);
+    UserService.checkCredentials = function (router) {
+        if (localStorage.getItem("user") === null) {
+            router.navigate(['login']);
+        }
+    };
+    UserService.prototype.logout = function () {
+        localStorage.removeItem("user");
+    };
     return UserService;
 }());
+UserService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], UserService);
 exports.UserService = UserService;
 //# sourceMappingURL=user.services.js.map

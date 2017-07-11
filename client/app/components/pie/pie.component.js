@@ -117,7 +117,6 @@ var PieComponent = (function () {
                     this._current = i(0);
                     return function (t) {
                         var result = arc(i(t));
-                        console.log(result);
                         return result;
                     };
                 }
@@ -148,15 +147,15 @@ var PieComponent = (function () {
         return chart;
     };
     ;
-    PieComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'pie',
-            templateUrl: 'pie.component.html'
-        }),
-        __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer, task_services_1.TaskService])
-    ], PieComponent);
     return PieComponent;
 }());
+PieComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'pie',
+        templateUrl: 'pie.component.html'
+    }),
+    __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer, task_services_1.TaskService])
+], PieComponent);
 exports.PieComponent = PieComponent;
 //# sourceMappingURL=pie.component.js.map

@@ -11,9 +11,10 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="home.html">Home</a></li>
+                    <li class="active"><a href="../">Home</a></li>
                     <li><a routerLink="register">Register</a></li>
-                    <li><a routerLink="login">Login</a></li>
+                    <li *ngIf="!user"><a routerLink="login">Login</a></li>
+                    <li *ngIf="user"><a (click)="logout()">Log Out ({{user.name}})</a></li>
                     <li><a routerLink="task">Task</a></li>
                 </ul>
             </div>

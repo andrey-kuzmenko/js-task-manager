@@ -47,11 +47,11 @@ var TaskService = (function () {
             .put('/api/tasks/' + task._id, JSON.stringify(task), { headers: headers })
             .map(function (res) { return res.json(); });
     };
-    TaskService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http])
-    ], TaskService);
     return TaskService;
 }());
+TaskService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], TaskService);
 exports.TaskService = TaskService;
 //# sourceMappingURL=task.services.js.map

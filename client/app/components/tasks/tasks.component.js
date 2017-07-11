@@ -11,10 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var task_services_1 = require("../../services/task.services");
+var user_services_1 = require("../../services/user.services");
+var router_1 = require("@angular/router");
 var TasksComponent = (function () {
-    function TasksComponent(taskService) {
+    function TasksComponent(taskService, router) {
         var _this = this;
         this.taskService = taskService;
+        this.router = router;
         // this.tasks = [
         //     {
         //         "title": "Walk the dog",
@@ -81,15 +84,18 @@ var TasksComponent = (function () {
             }
         });
     };
-    TasksComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'tasks',
-            templateUrl: 'tasks.component.html',
-        }),
-        __metadata("design:paramtypes", [task_services_1.TaskService])
-    ], TasksComponent);
+    TasksComponent.prototype.ngOnInit = function () {
+        user_services_1.UserService.checkCredentials(this.router);
+    };
     return TasksComponent;
 }());
+TasksComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'tasks',
+        templateUrl: 'tasks.component.html',
+    }),
+    __metadata("design:paramtypes", [task_services_1.TaskService, router_1.Router])
+], TasksComponent);
 exports.TasksComponent = TasksComponent;
 //# sourceMappingURL=tasks.component.js.map

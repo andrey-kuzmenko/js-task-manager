@@ -1,6 +1,8 @@
 import { Component, EventEmitter } from '@angular/core';
 import { TaskService } from '../../services/task.services';
 import { Task } from '../../../Task';
+import {UserService} from "../../services/user.services";
+import {Router} from "@angular/router";
 
 @Component({
     moduleId: module.id,
@@ -61,7 +63,11 @@ export class TasksComponent {
 
     }
 
-    constructor(private taskService: TaskService) {
+    ngOnInit(){
+        UserService.checkCredentials(this.router);
+    }
+
+    constructor(private taskService: TaskService, private router: Router) {
         // this.tasks = [
         //     {
         //         "title": "Walk the dog",

@@ -157,7 +157,6 @@ export class PieComponent {
           this._current = i(0);
           return function (t: any) {
             var result = arc(i(t));
-            console.log(result);
             return result;
           };
         }

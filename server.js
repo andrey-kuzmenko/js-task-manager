@@ -47,12 +47,6 @@ require('./config/passport')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('*', function (req, res, next) {
-   res.locals.user = req.user || null;
-   console.log(res.locals);
-   next();
-});
-
 //Set Static Folder
 const staticFilesPath = express.static(path.join(__dirname, 'client'));
 app.use(staticFilesPath);
@@ -61,8 +55,9 @@ app.use(staticFilesPath);
 //Body Parse MD
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+//Entry point
 app.use('/', index);
+//REST API
 app.use('/api', tasks);
 app.use('/users', users);
 

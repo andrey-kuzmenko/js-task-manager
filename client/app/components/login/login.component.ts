@@ -20,13 +20,15 @@ export class LoginComponent {
             password : this.password
         };
 
-        this.userService.auth(data).subscribe(saved => {
-            console.log("success: " + saved);
+        this.userService.auth(data).subscribe(user => {
+            localStorage.setItem("user", JSON.stringify(user));
             this.router.navigate(['/task']);
         },
-        err => console.log("err1: " + err));
+        err => console.log("err: " + err));
 
     }
+
+
 
     constructor(private userService: UserService, private router: Router) {
     }
