@@ -1,7 +1,7 @@
 import { Renderer, Component, ElementRef } from '@angular/core';
 import * as d3 from "../../../../node_modules/d3/build/d3.js";
 import { TaskService } from '../../services/task.services';
-import { Task } from '../../../Task';
+import { Task } from '../../models/Task';
 
 interface IChart {
   (): any,

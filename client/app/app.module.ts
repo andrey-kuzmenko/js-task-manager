@@ -8,11 +8,12 @@ import { RegisterComponent } from "./components/register/register.component";
 import { FormsModule} from '@angular/forms';
 import { routes } from './app.router';
 import {LoginComponent} from "./components/login/login.component";
+import {ProfileComponent} from "./components/profile/profile.component";
 
 
 @NgModule({
     imports: [BrowserModule, HttpModule, FormsModule, routes],
-    declarations: [AppComponent, TasksComponent, PieComponent, RegisterComponent, LoginComponent],
+    declarations: [AppComponent, TasksComponent, PieComponent, RegisterComponent, LoginComponent, ProfileComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule { 

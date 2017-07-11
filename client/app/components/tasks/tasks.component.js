@@ -87,15 +87,15 @@ var TasksComponent = (function () {
     TasksComponent.prototype.ngOnInit = function () {
         user_services_1.UserService.checkCredentials(this.router);
     };
+    TasksComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'tasks',
+            templateUrl: 'tasks.component.html',
+        }),
+        __metadata("design:paramtypes", [task_services_1.TaskService, router_1.Router])
+    ], TasksComponent);
     return TasksComponent;
 }());
-TasksComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'tasks',
-        templateUrl: 'tasks.component.html',
-    }),
-    __metadata("design:paramtypes", [task_services_1.TaskService, router_1.Router])
-], TasksComponent);
 exports.TasksComponent = TasksComponent;
 //# sourceMappingURL=tasks.component.js.map

@@ -29,16 +29,16 @@ var LoginComponent = (function () {
             _this.router.navigate(['/task']);
         }, function (err) { return console.log("err: " + err); });
     };
+    LoginComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'login-form',
+            templateUrl: './login.component.html',
+            styleUrls: ['login.component.css']
+        }),
+        __metadata("design:paramtypes", [user_services_1.UserService, router_1.Router])
+    ], LoginComponent);
     return LoginComponent;
 }());
-LoginComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'login-form',
-        templateUrl: './login.component.html',
-        styleUrls: ['login.component.css']
-    }),
-    __metadata("design:paramtypes", [user_services_1.UserService, router_1.Router])
-], LoginComponent);
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

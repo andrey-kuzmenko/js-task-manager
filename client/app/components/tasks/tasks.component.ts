@@ -1,6 +1,6 @@
 import { Component, EventEmitter } from '@angular/core';
 import { TaskService } from '../../services/task.services';
-import { Task } from '../../../Task';
+import { Task } from '../../models/Task';
 import {UserService} from "../../services/user.services";
 import {Router} from "@angular/router";
 

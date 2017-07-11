@@ -26,16 +26,16 @@ var AppComponent = (function () {
         this.router.navigate(['login']);
         this.user = null;
     };
+    AppComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'my-app',
+            templateUrl: 'app.component.html',
+            providers: [task_services_1.TaskService, user_services_1.UserService]
+        }),
+        __metadata("design:paramtypes", [user_services_1.UserService, router_1.Router])
+    ], AppComponent);
     return AppComponent;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'my-app',
-        templateUrl: 'app.component.html',
-        providers: [task_services_1.TaskService, user_services_1.UserService]
-    }),
-    __metadata("design:paramtypes", [user_services_1.UserService, router_1.Router])
-], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

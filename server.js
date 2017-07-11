@@ -13,6 +13,7 @@ const users = require('./routes/users');
 const port = process.env.PORT || 3000;
 const app = express();
 
+mongoose.Promise = Promise;
 mongoose.connect(config.database);
 
 
